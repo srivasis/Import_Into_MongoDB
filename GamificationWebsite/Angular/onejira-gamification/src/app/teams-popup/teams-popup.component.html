@@ -1,0 +1,15 @@
+<div>
+  <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile [colspan]=1>
+      <button mat-raised-button color="warn" [routerLink]="['/employeedash', teamMemberName]"> {{nameForPopup}}'s Dashboard </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]=1>
+        <h3>{{nameForPopup}} is on the following Teams:</h3>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-nav-list>
+      <mat-list-item *ngFor="let team of data" [routerLink]="['/teampage', team]" style="cursor: pointer; text-decoration: underline;">{{team}}</mat-list-item>
+  </mat-nav-list>
+</div>

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+        h3.
+                Teams
+        form#form_search_bar(method="GET",class="form-inline", align="right")
+            div(class="form-group")
+                input#input_name(type="text", placeholder="Search...",name="search",class="form-control")
+                input(type="submit", value="Search",class="btn btn-default")
+        ul
+            - for(var i = 0; i < teamList.length; i++){
+                li
+                    a(id="#")(href="http://localhost:3000/collectionFilter?"+ teamList[i][0]) #{teamList[i][0]} - #{teamList[i][1]}
+            - }
+        br
+        button(onclick='goHome()') Home
+
+       script.
+
+         function goHome(){
+             window.location.href = 'http://localhost:3000';
+         }
+
+

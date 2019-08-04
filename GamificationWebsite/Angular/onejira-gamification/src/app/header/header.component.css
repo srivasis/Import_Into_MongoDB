@@ -1,0 +1,24 @@
+.logo-center{
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.home-button-row button,
+.home-button-row a {
+  margin-right: 8px;
+  margin-left: -25px;
+}
+
+.logout-button {
+  box-sizing: border-box;
+}
+
+.loginLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span class="logo-center">
+  <div class="home-button-row">
+    <button mat-button color="white" [routerLink]="['/']">
+      <img src="assets/images/transamerica-logo.svg" width="50%" height="50%">
+    </button>
+  </div>
+  </span>
+  <app-search-team></app-search-team>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="openDialog()" class="login-button" *ngIf="!_auth.loggedIn()" color="warn">Log In</button>
+  <button mat-raised-button (click)="logOut()" class="logout-button" *ngIf="_auth.loggedIn()" color="warn">Log Out</button>
+</mat-toolbar>

@@ -1,0 +1,58 @@
+extends layout
+block content
+
+    script(src='/javascripts/Chart.min.js')
+
+    h3.
+        Velocity for Team #{teamName}
+    br
+    .container
+        canvas#myChart
+    ul
+        li Average Committed Velocity Overall: #{avgCommit}
+        li Average Completed Velocity Overall: #{avgComplete}
+        li Average Committed Velocity Over Last 3 Sprints: #{avgCommitThreeSprints}
+        li Average Completed Velocity Over Last 3 Sprints: #{avgCompleteThreeSprints}
+        li Consistency: #{consistency}%
+    ul
+        - for (var i = 0; i < sprints.length; i++){
+          li Sprint: #{sprints[i]}
+          ul
+            li Start Date: #{startDates[i]}
+            li End Date: #{endDates[i]}
+            //li Committed Velocity: #{committedVelocities[i]} 
+            //li Completed Velocity: #{completedVelocities[i]}
+            li Completeness: #{completeness[i]}%
+        - }
+    br
+    br
+
+
+    script.
+        sprints="#{sprints}".split(',');
+        start_dates="#{startDates}".split(',');
+        committed="#{committedVelocities}".split(',');
+        completed="#{completedVelocities}".split(',');
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'horizontalBar',
+            data: {
+            labels: sprints,
+            datasets: [{
+                label: 'Commited Velocity',
+                backgroundColor: 'rgb(135,206,250)',
+                data: committed
+            },
+            {
+                label: 'Completed Velocity',
+                backgroundColor: 'rgb(50,205,50)',
+                data: completed
+            }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+

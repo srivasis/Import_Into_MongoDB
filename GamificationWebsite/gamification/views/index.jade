@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div
+  table(border='3', align='right')
+    tbody
+      tr
+        td Rank
+        td Team Name
+        td Completed / Commit
+      - for (var i = teamAndConsistency.length - 1; i >= 0; i--) {
+        tr
+          td #{Math.abs(i - teamAndConsistency.length)}
+          td
+            a(href="http://localhost:3000/collectionFilter?"+ teamAndConsistency[i][0]) #{teamAndConsistency[i][0]}
+          td #{teamAndConsistency[i][1].toFixed(3)}%
+      - }
+  h3.
+  img(id='TransamericaLogo' src='/images/Transamerica-Logo.png' width='200' height='100' align='top')
+  p OneJira Gamification
+  br
+  br
+  button(onclick='goTeams()') Teams
+  br
+  br
+
+  script.
+   
+   function goTeams(){
+    window.location.href = '/collections'
+    }

@@ -1,0 +1,40 @@
+<mat-card *ngIf="isLoading">
+    <mat-spinner style="margin:25% auto;"></mat-spinner>
+</mat-card>
+
+<table mat-table [dataSource]="dataSource | async" class="indiv-velocity-card">
+  <!-- Name Column -->
+  <ng-container matColumnDef="member">
+    <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 16px"> Name </th>
+    <td mat-cell *matCellDef="let element" (click)="openTeamListForMember(element.member)" style="cursor: pointer; text-decoration: underline;"> {{element.member}} </td>
+  </ng-container>
+
+  <!-- Last 3 Sprints Committed Column -->
+  <ng-container matColumnDef="threeSprintCommit">
+    <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 16px"> Committed(Past 3 Sprints)
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.threeSprintCommit}} </td>
+  </ng-container>
+
+  <!-- Last 3 Sprints Completed Column -->
+  <ng-container matColumnDef="threeSprintComplete">
+    <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 16px"> Completed(Past 3 Sprints)
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.threeSprintComplete}} </td>
+  </ng-container>
+
+  <!-- Committed Column -->
+  <ng-container matColumnDef="overallCommit">
+    <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 16px"> Overall Committed </th>
+    <td mat-cell *matCellDef="let element"> {{element.overallCommit}} </td>
+  </ng-container>
+
+  <!-- Completed Column -->
+  <ng-container matColumnDef="overallComplete">
+    <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 16px"> Overall Completed </th>
+    <td mat-cell *matCellDef="let element"> {{element.overallComplete}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table>

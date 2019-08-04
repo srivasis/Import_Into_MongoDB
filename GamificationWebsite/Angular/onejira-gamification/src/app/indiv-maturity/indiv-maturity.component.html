@@ -1,0 +1,50 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Team ID Column -->
+  <ng-container matColumnDef="team_id">
+    <th mat-header-cell *matHeaderCellDef> Team ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.team_id}} </td>
+  </ng-container>
+
+  <!-- Sprint Name Column -->
+  <ng-container matColumnDef="sprint">
+    <th mat-header-cell *matHeaderCellDef> Sprint </th>
+    <td mat-cell *matCellDef="let element"> {{element.sprint}} </td>
+  </ng-container>
+
+  <!-- Ticket ID Column -->
+  <ng-container matColumnDef="ticket_id">
+    <th mat-header-cell *matHeaderCellDef> Ticket ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.ticket_id}} </td>
+  </ng-container>
+
+  <!-- Story Points Column -->
+  <ng-container matColumnDef="story_points">
+    <th mat-header-cell *matHeaderCellDef> Story Points </th>
+    <td mat-cell *matCellDef="let element"> {{element.story_points}} </td>
+  </ng-container>
+
+  <!-- Maturity Status Column -->
+  <ng-container matColumnDef="maturity_status">
+    <th mat-header-cell *matHeaderCellDef> Maturity Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.maturity_status}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div style="display: inline-block;">
+  <mat-card
+    style="margin: 10px; box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);">
+    Late Story Points: {{lateSP}}
+  </mat-card>
+
+  <mat-card
+    style="margin: 10px; box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);">
+    Total Story Points: {{totalSP}}
+  </mat-card>
+
+  <mat-card
+    style="margin: 10px; box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);">
+    Maturity: {{maturity}} %
+  </mat-card>
+</div>

@@ -1,0 +1,28 @@
+<h3 style="margin-left: 20px">{{displayName}}</h3>
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Team Roster">
+    <div class="team-roster mat-elevation-z4">
+      <app-team-roster></app-team-roster>
+    </div>
+  </mat-tab>
+  <mat-tab label="Sprints and Tickets">
+    <div class="sprint-info mat-elevation-z4">
+      <app-sprint-info></app-sprint-info>
+    </div>
+  </mat-tab>
+  <mat-tab label="Velocity">
+    <div class="team-velocity mat-elevation-z4">
+      <app-velocity></app-velocity>
+    </div>
+  </mat-tab>
+  <mat-tab label="Individual Velocity">
+    <div class="individual-velocity mat-elevation-z4">
+      <app-indiv-velocity></app-indiv-velocity>
+    </div>
+  </mat-tab>
+  <mat-tab label="Maturity">
+    <div class="team-maturity mat-elevation-z4">
+      <app-maturity></app-maturity>
+    </div>
+  </mat-tab>
+</mat-tab-group>

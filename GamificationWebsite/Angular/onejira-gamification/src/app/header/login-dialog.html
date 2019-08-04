@@ -1,0 +1,50 @@
+<div class="loginDialog">
+  <form #loginForm="ngForm">
+      <br>
+      <br>
+      <br>
+      <div style="text-align: center" class="loginLogo">
+        <img src="../../assets/images/TA_Login_Logo.png" width="316" height="76">
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <h2 mat-dialog-title align="center">Please enter your Transamerica credentials.</h2>
+    <mat-dialog-content>
+      <br>
+      <mat-form-field appearance="legacy" style="width:750px">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="jane.doe@transamerica.com" required [formControl]="email" name='email'>
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field style="width:750px">
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required [(ngModel)]="password" name='password'>
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+    </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button type="submit" [disabled]="!loginForm.form.valid || data.loginAttempts === 3" (click)="authenticate()">Log in</button>
+    </mat-dialog-actions>
+    <div class="warnings" [style.color]="'red'" [ngSwitch]="data.loginAttempts" align="center">
+        <ul *ngSwitchCase="0"></ul>
+        <ul *ngSwitchDefault>
+           <p>
+             Invalid Transamerica Credentials.
+             <br>
+             {{ 3 - data.loginAttempts }} attempt(s) remaining.
+           </p>
+          </ul>
+          <ul *ngSwitchCase="3">
+              <p>
+                Too many login attempts.
+              </p>
+           </ul>
+    </div>
+  </form>
+</div>

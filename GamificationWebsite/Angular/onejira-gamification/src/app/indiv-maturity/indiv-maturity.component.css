@@ -1,0 +1,7 @@
+table {
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  min-width: 500px;
+  padding: 20px;;
+}

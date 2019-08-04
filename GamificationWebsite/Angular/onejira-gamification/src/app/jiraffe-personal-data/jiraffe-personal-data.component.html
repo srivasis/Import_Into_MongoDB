@@ -1,0 +1,62 @@
+<table *ngIf="dataSource|async; let element;" class="mat-elevation-z8" style="margin: auto; margin-top: 10px; width:fit-content; display: inline-block; float: left; margin-left: 20px;" let data>
+  <tr>
+    <td>Name</td>
+    <td>{{employeeName}} </td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td> {{element.user_id}} </td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td> {{element.email}} </td>
+  </tr>
+  <tr>
+    <td>Contact</td>
+    <td> {{element.contact}} </td>
+  </tr>
+  <tr>
+    <td>Teams </td>
+    <td> {{element.team_id}} </td>
+  </tr>
+  <tr>
+    <td>Department </td>
+    <td> {{element.department}} </td>
+  </tr>
+  <tr>
+    <td>Company </td>
+    <td> {{element.company}} </td>
+  </tr>
+  <tr>
+    <td>Location </td>
+    <td> {{element.location}} </td>
+  </tr>
+</table>
+
+
+<table *ngIf="dataSource|async; let element;" class="mat-elevation-z8" style="margin: auto; margin-top: 10px; width:fit-content; display: inline-block; margin-left: 10px;">
+  <tr>
+    <td>JIRAFFE</td>
+    <td>{{element.level}} </td>
+  </tr>
+  <tr>
+    <td>Admin Points </td>
+    <td> {{element.admin_pts}} </td>
+  </tr>
+  <tr>
+    <td>User Points </td>
+    <td> {{element.user_pts}} </td>
+  </tr>
+  <tr>
+    <td>Tester Points </td>
+    <td> {{element.tester_pts}} </td>
+  </tr>
+  <tr>
+    <td>Developer Points </td>
+    <td> {{element.developer_pts}} </td>
+  </tr>
+  <tr>
+    <td>Total Points </td>
+    <td> {{element.total_pts}} </td>
+  </tr>
+</table>

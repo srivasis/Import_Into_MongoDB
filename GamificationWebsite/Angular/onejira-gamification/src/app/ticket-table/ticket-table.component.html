@@ -1,0 +1,37 @@
+<mat-card class="sprint-card">
+  <h4 align="center">{{sprintName}}</h4>
+  <table mat-table [dataSource]="dataSource | async" class="mat-elevation-z8">
+       <!-- Issue Key Column -->
+      <ng-container matColumnDef="IssueKey">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Ticket Key </th>
+        <td mat-cell *matCellDef="let element">
+          <a href="{{element.IssueLink}}">{{element.IssueKey}}</a>
+        </td>
+      </ng-container>
+       <!-- Issue ID Column -->
+      <ng-container matColumnDef="IssueID">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Ticket ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.IssueID}} </td>
+      </ng-container>
+       <!-- Assignee Column -->
+      <ng-container matColumnDef="Assignee">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Assignee </th>
+        <td mat-cell *matCellDef="let element" (click)="openTeamListForMember(element.Assignee)" style="cursor: pointer; text-decoration: underline;"> {{element.Assignee}} </td>
+      </ng-container>
+       <!-- Issue Status Description Column -->
+      <ng-container matColumnDef="IssueStatus">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.IssueStatus}} </td>
+      </ng-container>
+       <!-- Description Column -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    </table>
+</mat-card>
+<mat-card *ngIf="isLoading">
+    <mat-spinner style="margin:25% auto;"></mat-spinner>
+</mat-card>

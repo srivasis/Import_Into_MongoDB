@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h3.
+        Search Results
+    ul
+        - for(var i = 0; i < teamMembers.length; i++){
+            li 
+                a(id="#")(href="http://localhost:3000/collectionFilter?"+ teamMembers[i][1].substring(0,10)) #{teamMembers[i][0]} - #{teamMembers[i][1].substring(0,10)}
+        - }
+    br
+    br
+    button(onclick='collections()') Collections
+
+    script.
+
+        function collections(){
+            window.location.href = 'http://localhost:3000/collections';
+        }

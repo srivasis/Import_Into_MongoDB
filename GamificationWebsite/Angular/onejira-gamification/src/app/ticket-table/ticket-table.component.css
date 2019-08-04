@@ -1,0 +1,13 @@
+.sprint-card {
+  width: 100%;
+  margin: auto;
+}
+
+.mat-column-IssueKey{
+  flex: 0 0 200px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+}

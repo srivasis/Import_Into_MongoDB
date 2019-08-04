@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1="Transamerica Gamification Authentication Page"
+  h3.
+  form(name="auth", method='POST')
+    p Please enter your employee email adress and password below. Then select Login.
+    p Email  
+      input(type="email", placeholder="jane.doe@transamerica.com", style='width: 300px', name="userName", id="userName")
+    p Password  
+      input(type="password", placeholder="Enter Password", name="password", id="password")
+    button(type="submit") Login
+    
+
+      

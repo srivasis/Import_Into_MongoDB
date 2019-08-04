@@ -1,0 +1,12 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer class="example-sidenav" mode="side" opened>
+      <mat-list>
+          <mat-list-item (click)="spintData(sprint._id)" *ngFor="let sprint of dataSource|async">
+            {{sprint._id}}
+          </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-maturity-graph-table></app-maturity-graph-table>
+    </mat-drawer-content>
+  </mat-drawer-container>

@@ -1,0 +1,45 @@
+<div class= "table-container">
+    <mat-card class=leaderboard-card>
+        <table mat-table [dataSource]="dataSource | async">
+
+          <!-- Rank Column -->
+          <ng-container matColumnDef="rank">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px">Rank</th>
+            <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+          </ng-container>
+
+          <!-- Team ID Column -->
+          <ng-container matColumnDef="team_id">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Team ID </th>
+            <td mat-cell *matCellDef="let element" [routerLink]="['/teampage', element.team_id]" style="cursor: pointer; text-decoration: underline;"> {{element.team_id}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Team Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Consistency Metric Column -->
+          <ng-container matColumnDef="consistency_metric">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Average Velocity </th>
+            <td mat-cell *matCellDef="let element"> {{element.consistency_metric}}% </td>
+          </ng-container>
+
+          <!-- Maturity Column -->
+          <ng-container matColumnDef="maturity">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Maturity </th>
+            <td mat-cell *matCellDef="let element"> {{element.maturity}}% </td>
+          </ng-container>
+
+          <!-- Score Column -->
+          <ng-container matColumnDef="score">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold" style="font-size: 18px"> Score </th>
+            <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+        </table>
+    </mat-card>
+  </div>
